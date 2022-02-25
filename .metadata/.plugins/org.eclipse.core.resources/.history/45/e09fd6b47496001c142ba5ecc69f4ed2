@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+
+    Copyright (c) 2018, 2021 Oracle and/or its affiliates. All rights reserved.
+
+    This program and the accompanying materials are made available under the
+    terms of the Eclipse Distribution License v. 1.0, which is available at
+    http://www.eclipse.org/org/documents/edl-v10.php.
+
+    SPDX-License-Identifier: BSD-3-Clause
+
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+	<title>Facelets Gestión de Proyectos</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:graphicImage url="#{resource['images:DGTIC.gif']}"
+			alt="UNAM" />
+
+		<h2>User</h2>
+		<h:inputText id="usu_user" title="User"
+			value="#{usuarioBean.usu_user}" required="true"
+			requiredMessage="Error: Favor de introducir Firma Corta." maxlength="11" />
+
+
+		<h2>Password</h2>
+		<h:inputText id="usu_password" title="Password"
+			value="#{usuarioBean.usu_password}" required="true"
+			requiredMessage="Error: Favor de introducir Password." maxlength="20" />
+	
+		<p></p>
+		<h:commandButton id="submit" value="Enviar" action="#{usuarioBean.registrar()}" />
+		<h:commandButton id="reset" value="Limpiar" type="reset" />
+	</h:form>
+	<div class="messagecolor">
+		<h:messages showSummary="true" showDetail="false"
+			errorStyle="color: pink" infoStyle="color: blue" />
+	</div>
+</h:body>
+</html>
+

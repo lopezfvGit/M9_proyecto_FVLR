@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+
+    Copyright (c) 2018, 2021 Oracle and/or its affiliates. All rights reserved.
+
+    This program and the accompanying materials are made available under the
+    terms of the Eclipse Distribution License v. 1.0, which is available at
+    http://www.eclipse.org/org/documents/edl-v10.php.
+
+    SPDX-License-Identifier: BSD-3-Clause
+
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+      
+<h:head>
+	<title>Facelets Gestión de Proyectos</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h1>Registro de Recursos/Proveedores</h1>
+		<h2>Nombre del Recurso/Proveedor</h2>
+		<h:inputText id="rec_nombre" title="El puesto es:" required="true"
+			value="#{recursosBean.rec_nombre}" maxlength="200"
+			requiredMessage="El campo puesto es requerido." />
+		<p></p>
+		<h2>Clave de la Demanda</h2>
+		<h:inputTextarea id="rec_demanda" title="Las habilidades son:"
+			required="true" value="#{recursosBean.rec_demanda}" maxlength="200"
+			requiredMessage="El campo habilidades es requerido." />
+		<p></p>
+		<h2>Fase del Proyecto</h2>
+		<h:selectOneMenu id="rec_fase" title="Los departamentos son:"
+			value="#{recursosBean.rec_fase}">
+
+			<f:selectItem itemLabel="Estimación" itemValue="1" />
+			<f:selectItem itemLabel="Análisis" itemValue="2" />
+			<f:selectItem itemLabel="Diseño" itemValue="3" />
+			<f:selectItem itemLabel="Construcción" itemValue="4" />
+			<f:selectItem itemLabel="Soportes a Pruebas Funcionales y de Regresión" itemValue="5" />
+			<f:selectItem itemLabel="Liberación" itemValue="6" />
+			<f:selectItem itemLabel="Soporte PostImplantación" itemValue="7" />
+
+		</h:selectOneMenu>
+		<p></p>
+		<h2>Horas del Proyecto</h2>
+		<h:inputTextarea id="rec_horas" title="Mis idiomas es:"
+			required="true" value="#{recursosBean.rec_horas}" maxlength="200"
+			requiredMessage="El campo idiomas es requerido." />
+
+		<p></p>
+		<h2>Tarifa mensual del Recurso</h2>
+		<h:inputTextarea id="rec_tarifa_mensual" title="Mis experiencia es:"
+			required="true" value="#{recursosBean.rec_tarifa_mensual}" maxlength="200"
+			requiredMessage="El campo experiencia es requerido." />
+
+		<p></p>
+		<h2>Costo Mensual</h2>
+		<h:inputTextarea id="rec_costo" title="Mis idiomas es:"
+			required="true" value="#{recursosBean.rec_costo}" maxlength="200"
+			requiredMessage="El campo escolaridad es requerido." />
+		<p></p>
+		<h2>Mes</h2>
+		<h:selectOneMenu id="rec_mes" title="Los departamentos son:"
+			value="#{recursosBean.rec_mes}">
+
+			<f:selectItem itemLabel="Enero" itemValue="1" />
+			<f:selectItem itemLabel="Febrero" itemValue="2" />
+			<f:selectItem itemLabel="Marzo" itemValue="3" />
+			<f:selectItem itemLabel="Abril" itemValue="4" />
+			<f:selectItem itemLabel="Mayo" itemValue="5" />
+			<f:selectItem itemLabel="Junio" itemValue="6" />
+			<f:selectItem itemLabel="Julio" itemValue="7" />
+			<f:selectItem itemLabel="Agosto" itemValue="8" />
+			<f:selectItem itemLabel="Septiembre" itemValue="9" />
+			<f:selectItem itemLabel="Octubre" itemValue="10" />
+			<f:selectItem itemLabel="Noviembre" itemValue="11" />
+			<f:selectItem itemLabel="Diciembre" itemValue="12" />
+
+		</h:selectOneMenu>
+		<p></p>
+		<p>
+		<h:commandButton id="submit" value="Enviar"
+			action="#{recursosBean.registrar()}" />
+               <input jsf:id="clear" name="clear" value="Limpiar" type="submit">
+                    <f:ajax render="@all" listener="#{recursosBeanBean.clear}"/>
+                </input>
+		</p>
+
+	</h:form>
+	<div class="messagecolor">
+		<h:messages showSummary="true" showDetail="false"
+			errorStyle="color: pink" infoStyle="color: blue" />
+	</div>
+	
+	<div>
+		
+	
+	</div>
+	
+	
+</h:body>
+</html>
+

@@ -1,0 +1,5 @@
+#GlassFish 3
+#Fri Feb 25 14:46:59 CST 2022
+org.eclipse.jst.jee.server\:hello1=C\:\\java\\DJ-M9\\glassfish-6.1.0\\glassfish6\\glassfish\\domains\\domain1\\eclipseApps\\hello1
+org.eclipse.jst.jee.server\:miGestion=C\:\\java\\DJ-M9\\glassfish-6.1.0\\glassfish6\\glassfish\\domains\\domain1\\eclipseApps\\miGestion
+org.eclipse.jst.jee.server\:miProyecto=C\:\\java\\DJ-M9\\glassfish-6.1.0\\glassfish6\\glassfish\\domains\\domain1\\eclipseApps\\miProyecto

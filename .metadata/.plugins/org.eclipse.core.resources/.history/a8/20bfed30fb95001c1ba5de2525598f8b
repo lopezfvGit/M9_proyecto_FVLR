@@ -1,0 +1,51 @@
+package com.unam.miGestion;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import jakarta.enterprise.inject.Model;
+import jakarta.inject.Inject;
+
+@Model
+public class ProyectoBean implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7141020465980742077L;
+
+	
+	@Inject
+	private MessageBean messageBean;
+    
+	
+	private String pro_demanda;
+	private String pro_nombre;
+	private String pro_cve_presupuestal;
+	private Date pro_fec_cierre_apr;
+	private Date pro_fec_cierre_apr_firmas;
+	private Date pro_fec_rom;
+	private Date pro_disenos_plan_matriz;
+	private Date pro_disenos_plan_matriz_firmas;
+	private Date pro_fec_liberacion;
+	private String pro_tamano;
+	private Double pro_horas;
+
+	public String registrar() {
+		//logica de negocio , comunicacion via jpa el guardado en la BD
+		System.out.println(pro_demanda);
+		System.out.println(pro_nombre);
+		System.out.println(pro_cve_presupuestal);
+		System.out.println(pro_fec_cierre_apr);
+		System.out.println(pro_fec_cierre_apr_firmas);
+		System.out.println(pro_fec_rom);
+		System.out.println(pro_disenos_plan_matriz);
+		System.out.println(pro_disenos_plan_matriz_firmas);
+		System.out.println(pro_fec_liberacion);
+		System.out.println(pro_tamano);
+		System.out.println(pro_horas);
+		messageBean.setMensaje("Muchas gracias tu Proyecto con Demanda "+pro_demanda+" ha quedado registrado.");
+		return "index";
+	}
+
+}

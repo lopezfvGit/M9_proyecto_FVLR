@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+
+    Copyright (c) 2018, 2021 Oracle and/or its affiliates. All rights reserved.
+
+    This program and the accompanying materials are made available under the
+    terms of the Eclipse Distribution License v. 1.0, which is available at
+    http://www.eclipse.org/org/documents/edl-v10.php.
+
+    SPDX-License-Identifier: BSD-3-Clause
+
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+	
+<h:head>
+	<title>Facelets Gestión de Proyectos</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h1>Registro del Proyecto</h1>
+		<h2>Clave Demanda</h2>
+		<h:inputTextarea id="pro_demanda" title="Clave de la Demanda:"
+			required="true" value="#{proyectoBean.pro_demanda}" maxlength="11"
+			requiredMessage="La clave de la Demanda es requerida." />
+		<p></p>
+		<h2>Nombre del Proyecto</h2>
+		<h:inputTextarea id="pro_nombre" title="Nombre del Proyecto:"
+			required="true" value="#{proyectoBean.pro_nombre}" maxlength="200" 
+			requiredMessage="El nombre del Proyecto es requerido." />
+		<p></p>
+		<h2>Clave Presupuestal</h2>
+		<h:inputTextarea id="pro_cve_presupuestal" title="Clave Presupuestal:"
+			required="true" value="#{proyectoBean.pro_cve_presupuestal}" maxlength="05"
+			requiredMessage="La clave Presupuestal es requerida." />
+		<p></p>
+		
+		<p>
+		  <label>Fecha planeada de Cierre del APR</label>
+		  <br/>
+		<input type="date" jsf:id="pro_fec_cierre_apr" name="pro_fec_cierre_apr" 
+			value="#{proyectoBean.pro_fec_cierre_apr}" required="required"
+			title="Fecha planeada de Cierre del APR:" />
+		</p>
+		
+		<p>
+		<label>Fecha planeada de Cierre del APR firmado</label>
+				  <br/>
+		<input type="date" jsf:id="pro_fec_cierre_apr_firmas" name="pro_fec_cierre_apr_firmas" title="Fecha de Cierre del APR firmado:"
+			required="required" value="#{proyectoBean.pro_fec_cierre_apr_firmas}" />  
+		</p>
+		<p>
+		<label>Fecha planeada de Cierre del ROM</label>
+				  <br/>
+		<input type="date" jsf:id="pro_fec_rom" name="pro_fec_rom" title="Fecha de Cierre del ROM:"
+			required="required" value="#{proyectoBean.pro_fec_rom}" />  
+		</p>
+		<p>
+		<label>Fecha planeada de Cierre de los Documentos</label>
+				  <br/>
+		<input type="date" jsf:id="pro_disenos_plan_matriz" name="pro_disenos_plan_matriz" title="Nombre del Proyecto:"
+			required="required" value="#{proyectoBean.pro_disenos_plan_matriz}" />  
+		</p>
+		<p>
+		<label>Fecha planeada de Cierre de los DocumentosFirmados</label>
+				  <br/>
+		<input type="date" jsf:id="pro_disenos_plan_matriz_firmas" name="pro_disenos_plan_matriz_firmas" title="Documentos:"
+			required="required" value="#{proyectoBean.pro_disenos_plan_matriz_firmas}" />  
+		</p>
+		<p>
+		<label>Fecha planeada de la Liberacion del Proyecto</label>
+				  <br/>
+		<input type="date" jsf:id="pro_fec_liberacion" name="pro_fec_liberacion" title="Fecha de Liberacion:"
+			required="required" value="#{proyectoBean.pro_fec_liberacion}" />  
+		</p>
+		
+		<h2>Tamaño del Proyecto</h2>
+		<h:selectOneMenu id="pro_tamano" title="Tamano del Proyecto::"
+			value="#{proyectoBean.pro_tamano}">
+
+			<f:selectItem itemLabel="Chico" itemValue="1" />
+			<f:selectItem itemLabel="Mediano" itemValue="2" />
+			<f:selectItem itemLabel="Grande" itemValue="3" />
+			<f:selectItem itemLabel="Jumbo" itemValue="4" />
+
+		</h:selectOneMenu>
+		<p></p>
+		
+		<h2>Horas Estimadas del Proyecto</h2>
+		<h:inputTextarea id="pro_horas" title="Horas del Proyecto:"
+			required="true" value="#{proyectoBean.pro_horas}" maxlength="6"
+			requiredMessage="las Horas del Proyecto son requeridas." />
+
+
+		<p></p>
+		<p>
+		<h:commandButton id="submit" value="Enviar"
+			action="#{proyectoBean.registrar()}" />
+		<input jsf:id="clear" name="clear" value="Limpiar" type="submit">
+                    <f:ajax render="@all" listener="#{usuarioBean.clear}"/>
+                </input>
+		</p>
+	
+	</h:form>
+	<div class="messagecolor">
+		<h:messages showSummary="true" showDetail="false"
+			errorStyle="color: pink" infoStyle="color: blue" />
+	</div>
+</h:body>
+</html>
+

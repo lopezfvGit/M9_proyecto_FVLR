@@ -1,0 +1,64 @@
+package com.unam.miGestion;
+
+import java.io.Serializable;
+
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
+
+@Named
+@SessionScoped
+public class UsuarioBean implements Serializable {
+
+	private static final long serialVersionUID = -8463063443349736411L;
+	
+	private String id_usuario;
+	private String usu_user;
+	private String usu_password;
+
+	@Inject
+	private MessageBean messageBean;
+	
+	public String registrar() {
+		System.out.println(id_usuario);
+		System.out.println(usu_user);
+		System.out.println(usu_password);
+		//respuesta="felicidades " + nombre + ", has quedado registrado como condidato";
+		messageBean.setMensaje("Bienvenido " + usu_user + ", disfruta de la Gestión de Proyectos");
+		return "index";
+	}
+
+	public String getId_usuario() {
+		return id_usuario;
+	}
+
+	public void setId_usuario(String id_usuario) {
+		this.id_usuario = id_usuario;
+	}
+
+	public String getUsu_user() {
+		return usu_user;
+	}
+
+	public void setUsu_user(String usu_user) {
+		this.usu_user = usu_user;
+	}
+
+	public String getUsu_password() {
+		return usu_password;
+	}
+
+	public void setUsu_password(String usu_password) {
+		this.usu_password = usu_password;
+	}
+
+	public MessageBean getMessageBean() {
+		return messageBean;
+	}
+
+	public void setMessageBean(MessageBean messageBean) {
+		this.messageBean = messageBean;
+	}
+
+}

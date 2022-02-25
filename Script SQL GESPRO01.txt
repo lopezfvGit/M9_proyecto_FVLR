@@ -1,0 +1,106 @@
+/*  Script de Creación de las Tablas del modelo de datos de mi proyecto Gestion de Métricas_GESPR01
+              Creación de la Tabla de Usuarios
+	@author	          		Fabiola Verónica López Rodríguez
+	@creationDate 		20211110
+	@lastModification		20211110
+*/
+
+CREATE TABLE usuarios (
+	id_usuario 			SMALLINT NOT NULL,                            
+	usu_user				VARCHAR(11) NOT NULL,
+	usu_password			VARCHAR(20) NOT NULL,
+
+/*  Script de Creación de Proyectos
+              Creación de la Tabla proyecto
+	@author	          		Fabiola Verónica López Rodríguez
+	@creationDate 		20211110
+	@lastModification		20211110
+*/
+
+CREATE TABLE proyecto (
+	id_proyecto 			SMALLINT NOT NULL,                            
+	pro_demanda			VARCHAR(11) NOT NULL,
+	pro_nombre			VARCHAR(200) NOT NULL,
+	pro_cve_presupuestal		CHAR(05) NOT NULL,
+	pro_fec_cierre_apr			DATE NOT NULL,
+	pro_fec_cierre_apr_firmas                   DATE NOT NULL,
+	pro_fec_rom			DATE NOT NULL,
+	pro_fec_disenos_plan_matriz	DATE NOT NULL,
+	pro_fec_disenos_plan_matriz_firmas	DATE NOT NULL,
+	pro_fec_liberacion			DATE NOT NULL,
+	pro_tamano			CHAR(01) NOT NULL,
+	pro_horas			DOUBLE NOT NULL,
+	PRIMARY KEY (id_proyecto)
+);
+
+/* Creación de la Tabla recursos
+	@author	          		Fabiola Verónica López Rodríguez
+	@creationDate 		20211110
+	@lastModification		20211110
+*/
+CREATE TABLE recursos (
+	id_recurso			SMALLINT NOT NULL,
+	rec_nombre			VARCHAR(80) NOT NULL,
+	rec_demanda			VARCHAR(11) NOT NULL,	
+	rec_fase				INTEGER (1) NOT NULL,
+	rec_horas			INTEGER (3) NOT NULL,
+	rec_tarifa_mensual			DOUBLE,
+	rec_costo			DOUBLE NOT NULL,
+	rec_mes				VARCHAR(10) NOT NULL,		
+	PRIMARY KEY (id_recurso),
+	FOREIGN KEY (rec_demanda) REFERENCES proyecto (pro_demanda)
+);
+
+
+/* Creación de la Tabla avanceProyecto
+	@author	          		Fabiola Verónica López Rodríguez
+	@creationDate 		20211110
+	@lastModification		20211110
+*/
+
+CREATE TABLE avanceProyecto (
+	id_aproyecto 				SMALLINT NOT NULL,
+	apro_demanda				VARCHAR(11) NOT NULL,	
+	apro_fec_fin_cierre_apr			DATE NOT NULL,
+	apro_fec_fin_cierre_apr_firmas		DATE NOT NULL,
+	apro_fec_fin_rom				DATE NOT NULL,
+	apro_fec_fin_disenos_plan_matriz		DATE NOT NULL,
+	apro_fec_fin_disenos_plan_matriz_firmas	DATE NOT NULL,
+	apro_fec_fin_diseno_capas_componentes 	DATE NOT NULL,
+	apro_fec_fin_liberacion			DATE NOT NULL,
+	PRIMARY KEY (id_aproyecto),
+	FOREIGN KEY (apro_demanda) REFERENCES proyecto (pro_demanda)
+);
+
+/* Creación de la Tabla calidadProyecto
+	@author	          		Fabiola Verónica López Rodríguez
+	@creationDate 		20211110
+	@lastModification		20211110
+*/
+CREATE TABLE calidadProyecto (
+	id_calidad			SMALLINT NOT NULL,
+	cal_demanda			VARCHAR(11) NOT NULL,
+	cal_cve_issue			CHAR(10) NOT NULL,
+	cal_fec_issue			DATE NOT NULL,
+	cal_severiad_issue			CHAR(1) NOT NULL,			
+	PRIMARY KEY (id_calidad),
+	FOREIGN KEY (cal_demanda) REFERENCES proyecto (pro_demanda)
+);
+
+/* Creación de la Tabla metricas
+	@author	          		Fabiola Verónica López Rodríguez
+	@creationDate 		20211110
+	@lastModification		20211110
+*/
+CREATE TABLE metricas (
+	id_metricas			SMALLINT NOT NULL,
+	met_demanda			VARCHAR(11) NOT NULL,
+	met_calif_kr1			CHAR(1) NOT NULL,
+	met_calif_kr2			CHAR(1) NOT NULL,
+	met_calif_kr3			CHAR(1) NOT NULL,
+	met_calif_kr4			CHAR(1) NOT NULL,
+	met_calif_kr5			CHAR(1) NOT NULL,
+	met_calif_final			CHAR(1) NOT NULL,	
+	PRIMARY KEY (id_metricas),
+	FOREIGN KEY (met_demanda) REFERENCES proyecto (pro_demanda)
+);

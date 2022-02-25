@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+
+    Copyright (c) 2018, 2021 Oracle and/or its affiliates. All rights reserved.
+
+    This program and the accompanying materials are made available under the
+    terms of the Eclipse Distribution License v. 1.0, which is available at
+    http://www.eclipse.org/org/documents/edl-v10.php.
+
+    SPDX-License-Identifier: BSD-3-Clause
+
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+	<title>Facelets Gestión de Proyectos</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h1>Registro del Proyecto</h1>
+		<h2>Clave Demanda</h2>
+		<h:inputTextarea id="pro_demanda" title="Clave de la Demanda:"
+			required="true" value="#{proyectoBean.pro_demanda}" maxlength="11"
+			requiredMessage="La clave de la Demanda es requerida." />
+		<p></p>
+		<h2>Nombre del Proyecto</h2>
+		<h:inputTextarea id="pro_nombre" title="Nombre del Proyecto:"
+			required="true" value="#{proyectoBean.pro_nombre}" maxlength="200" 
+			requiredMessage="El nombre del Proyecto es requerido." />
+		<p></p>
+		<h2>Clave Presupuestal</h2>
+		<h:inputTextarea id="pro_cve_presupuestal" title="Clave Presupuestal:"
+			required="true" value="#{proyectoBean.pro_cve_presupuestal}" maxlength="05"
+			requiredMessage="La clave Presupuestal es requerida." />
+		<p></p>
+		<h2>Fecha planeada de Cierre del APR</h2>
+
+		<h:inputText type="date" id="pro_fec_cierre_apr" title="Fecha de Cierre del APR:"
+			required="true" value="#{proyectoBean.pro_fec_cierre_apr}" maxlength="10"
+			requiredMessage="La fecha de cierre de APR es requerida." />
+		<p></p>
+		<h2>Fecha planeada de Cierre del APR firmado</h2>
+		<h:inputTextarea id="pro_fec_cierre_apr_firmas" title="Fecha de Cierre del APR firmado:"
+			required="true" value="#{proyectoBean.pro_fec_cierre_apr_firmas}" maxlength="10"
+			requiredMessage="La fecha de cierre de APR firmado es requerida." />
+		<h2>Fecha planeada de Cierre del ROM</h2>
+		<h:inputTextarea id="pro_fec_rom" title="Fecha de Cierre del ROM:"
+			required="true" value="#{proyectoBean.pro_fec_rom}" maxlength="10"
+			requiredMessage="La fecha de cierre del ROM es requerido." />
+		<p></p>
+		<h2>Fecha planeada de Cierre de los Documentos</h2>
+		<h:inputTextarea id="pro_disenos_plan_matriz" title="Nombre del Proyecto:"
+			required="true" value="#{proyectoBean.pro_disenos_plan_matriz}" maxlength="10" 
+			requiredMessage="La fecha de cierre de los Diseños, Plan y Matriz es requerida." />
+		<p></p>
+		<h2>Fecha planeada de Cierre de los DocumentosFirmados</h2>
+		<h:inputTextarea id="pro_disenos_plan_matriz_firmas" title="Documentos:"
+			required="true" value="#{proyectoBean.pro_disenos_plan_matriz_firmas}" maxlength="10"
+			requiredMessage="La fecha de cierre de los Diseños, Plan y Matriz firmados es requerida." />
+		<p></p>
+		<h2>Fecha planeada de la Liberacion del Proyecto</h2>
+		<h:inputTextarea id="pro_fec_liberacion" title="Fecha de Liberacion:"
+			required="true" value="#{proyectoBean.pro_fec_liberacion}" maxlength="10"
+			requiredMessage="La fecha de la Liberación del Proyecto es requerida." />
+		<p></p>
+		<h2>Tamano del Proyecto</h2>
+		<h:inputTextarea id="pro_tamano" title="Tamano del Proyecto:"
+			required="true" value="#{proyectoBean.pro_tamano}" maxlength="1"
+			requiredMessage="El tamano del Proyecto es requerido." />
+		<h2>Horas Estimadas del Proyecto</h2>
+		<h:inputTextarea id="pro_horas" title="Horas del Proyecto:"
+			required="true" value="#{proyectoBean.pro_horas}" maxlength="6"
+			requiredMessage="las Horas del Proyecto son requeridas." />
+
+
+		<p></p>
+		<h:commandButton id="submit" value="Enviar"
+			action="#{proyectoBean.registrar()}" />
+		<h:commandButton id="reset" value="Limpiar" type="reset" />
+	</h:form>
+	<div class="messagecolor">
+		<h:messages showSummary="true" showDetail="false"
+			errorStyle="color: pink" infoStyle="color: blue" />
+	</div>
+</h:body>
+</html>
+
